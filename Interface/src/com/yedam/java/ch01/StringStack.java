@@ -1,8 +1,8 @@
 package com.yedam.java.ch01;
 
 public class StringStack implements Stack {
-	private int num;
-	private int set;
+	private int num; //개수
+	private int set; //위치
 	private String[]stack;
 	public StringStack(int num) {
 		this.num = num;
@@ -21,6 +21,8 @@ public class StringStack implements Stack {
 
 	@Override
 	public String pop() {
+		//set 이 가질수 있는 최대 값 : num
+		//set 이 가질수 있는 최소 값 : -1
 		if(set-1<0)
 		return null;
 		set--;
@@ -34,8 +36,7 @@ public class StringStack implements Stack {
 	@Override
 	public boolean push(String val) {
 		if(set<num) {
-			stack[set] = val;
-			set++;
+			stack[set++] = val;
 			return true;
 		}
 		else
